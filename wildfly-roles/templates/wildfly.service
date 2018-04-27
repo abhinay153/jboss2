@@ -1,0 +1,15 @@
+[Unit]
+Description=WildFly application server
+After=network.target
+
+[Service]
+Type=simple
+Environment=JAVA=/opt/jdk1.8.0_161/bin/java
+User=wildfly
+Group=wildfly
+ExecStart= /opt/wildfly/bin/standalone.sh -b=0.0.0.0
+
+#Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

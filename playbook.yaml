@@ -1,0 +1,6 @@
+---
+- hosts: jboss
+  become: true
+  roles:
+  - oraclejdk-ansible-role 
+  - wildfly-ansible-role

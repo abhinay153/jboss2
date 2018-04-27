@@ -1,0 +1,36 @@
+---
+- name: Create jdk dir
+  file:
+    path: "{{jdk_basedir}}"
+    state: directory
+    mode: 0755
+#- name: get JDK tarball (as tar.gz file)
+#  get_url:
+#    url: "http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz"
+#    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+#    dest: "/home/ubuntu/jboss/jdk-8u161-linux-x64.tar.gz"
+
+- name: copy jdk file
+  copy:
+    src: /home/ubuntu/jboss/jdk-8u161-linux-x64.tar.gz
+    dest: /opt
+
+#- name: Unarchive jdk
+#  unarchive:
+#    remote_src: true
+#    src: /opt/jdk-8u161-linux-x64.tar.gz
+#    dest: "{{jdk_basedir}}"
+#    creates: "{{jdk_basedir}}/jdk1.8.0_161"
+#    owner: root
+#    group: root
+
+- name: unarchive jdk
+  command: tar -xvzf /opt/jdk-8u161-linux-x64.tar.gz -C /opt
+
+- name: Copy environment script
+  template:
+    src: java.sh
+    dest: /etc/profile.d
+    mode: 0644
+    owner: root
+    group: root

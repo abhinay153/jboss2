@@ -1,0 +1,4 @@
+---
+- name: copy files
+  src: /home/ubuntu/jboss/jdk1.8.0_161
+  dest: /opt

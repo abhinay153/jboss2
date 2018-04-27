@@ -1,0 +1,2 @@
+JAVA_HOME={{jdk_basedir}}/jdk1.8.0_131
+PATH={{jdk_basedir}}/jdk1.8.0_131/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
